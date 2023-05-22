@@ -1,0 +1,11 @@
+A classic example of thread communication involving conditions is the relationship
+between a producer thread and a consumer thread. The producer thread produces data
+items to be consumed by the consumer thread. Each produced data item is stored in a
+shared variable.
+Imagine that the threads are running at different speeds. The producer might
+produce a new data item and record it in the shared variable before the consumer
+retrieves the previous data item for processing. Also, the consumer might retrieve the
+contents of the shared variable before a new data item is produced.
+To overcome those problems, the producer thread must wait until it’s notified that
+the previously produced data item has been consumed, and the consumer thread must
+wait until it’s notified that a new data item has been produced.
